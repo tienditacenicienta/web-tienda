@@ -7,7 +7,7 @@ EDITA SOLO ESTE ARCHIVO PARA CAMBIAR PRODUCTOS.
 Usa una URL de foto pública en "imagen". Si no tienes foto, deja imagen: "".
 */
 const CONFIG = {
-  whatsapp: "51999999999", // REEMPLAZA por el número de ventas: código Perú 51 + número, sin + ni espacios
+  whatsapp: "51922244961", // REEMPLAZA por el número de ventas: código Perú 51 + número, sin + ni espacios
   nombre: "Naty",
   dropTitulo: "Lo que estoy mostrando esta semana",
   dropDescripcion: "Una selección de productos que han salido en los lives. Pregúntame si todavía están disponibles ♡"
