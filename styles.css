@@ -110,3 +110,137 @@ h2{font-family:var(--serif);font-size:clamp(27px,4vw,38px);font-weight:400;lette
  .footer{flex-direction:column;gap:5px}
 }
 @media(max-width:360px){h1{font-size:42px}.cart-bar .button{white-space:normal;max-width:58%}.drop{grid-template-columns:1fr}.drop-stamp{display:none}}
+
+/* Apoyo voluntario por Yape: función independiente */
+.support-widget {
+  position: fixed;
+  right: 18px;
+  bottom: 22px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  font-family: var(--sans);
+}
+
+.support-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 11px 17px;
+  border: 1px solid #e4d6c7;
+  border-radius: 999px;
+  background: #f3e7d7;
+  color: #604a36;
+  box-shadow: 0 4px 18px rgba(48, 44, 39, .10);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.support-trigger:hover {
+  background: #eee0cf;
+}
+
+.support-trigger span {
+  font-size: 19px;
+  line-height: 1;
+}
+
+.support-panel[hidden] {
+  display: none;
+}
+
+.support-panel {
+  position: relative;
+  width: min(340px, calc(100vw - 32px));
+  max-height: min(80vh, 620px);
+  overflow-y: auto;
+  padding: 28px 22px 20px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--white);
+  color: var(--ink);
+  box-shadow: 0 12px 40px rgba(48, 44, 39, .17);
+  text-align: center;
+}
+
+.support-close {
+  position: absolute;
+  top: 9px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 24px;
+  line-height: 1;
+}
+
+.support-eyebrow {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+}
+
+.support-panel h2 {
+  margin: 0 0 12px;
+  font-family: var(--serif);
+  font-size: 29px;
+  font-weight: 400;
+}
+
+.support-message {
+  margin: 0 0 17px;
+  color: #655b51;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.support-qr {
+  width: 176px;
+  max-width: 100%;
+  aspect-ratio: 1;
+  margin: 0 auto 13px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: white;
+}
+
+.support-qr img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.support-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+@media (max-width: 680px) {
+  .support-widget {
+    right: 12px;
+    bottom: 82px;
+  }
+
+  .support-trigger {
+    min-height: 42px;
+    padding: 10px 14px;
+    font-size: 11px;
+  }
+
+  .support-panel {
+    padding: 27px 18px 18px;
+  }
+}
