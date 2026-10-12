@@ -1,4 +1,3 @@
-```javascript
 const grid = document.querySelector("#product-grid");
 const empty = document.querySelector("#empty-state");
 const cartBar = document.querySelector("#cart-bar");
