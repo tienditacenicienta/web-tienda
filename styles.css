@@ -244,3 +244,178 @@ h2{font-family:var(--serif);font-size:clamp(27px,4vw,38px);font-weight:400;lette
     padding: 27px 18px 18px;
   }
 }
+
+/* Nueva sección: cariñitos voluntarios para Naty */
+.gifts {
+  padding-top: 12px;
+  padding-bottom: 56px;
+}
+
+.gifts-heading {
+  max-width: 590px;
+  margin-bottom: 25px;
+}
+
+.gifts-heading h2 {
+  margin-bottom: 12px;
+}
+
+.gifts-heading > p:last-child {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+
+.gifts-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.gift-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px 16px;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: var(--white);
+}
+
+.gift-emoji {
+  width: 45px;
+  height: 45px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  background: var(--cream);
+  font-size: 22px;
+}
+
+.gift-kicker {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+}
+
+.gift-card h3 {
+  margin: 0 0 8px;
+  font-family: var(--serif);
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.gift-card > p:not(.gift-kicker):not(.gift-feedback) {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.gift-price {
+  margin-top: auto;
+  margin-bottom: 15px;
+  font-size: 17px;
+}
+
+.gift-button {
+  width: 100%;
+  min-height: 42px;
+  padding: 10px 12px;
+  border: 1px solid #e4d6c7;
+  border-radius: 999px;
+  background: #f7f0e8;
+  color: #604a36;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.4;
+  transition: background .2s ease, border-color .2s ease;
+}
+
+.gift-button:hover {
+  background: #eee0cf;
+}
+
+.gift-button.selected {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: white;
+}
+
+.gift-card-custom .gift-label {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.gift-custom-input {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 12px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--muted);
+}
+
+.gift-custom-input input {
+  width: 100%;
+  min-width: 0;
+  height: 42px;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+}
+
+.gift-custom-input:focus-within {
+  border-color: var(--accent);
+}
+
+.gift-feedback {
+  min-height: 15px;
+  margin: 8px 0 0;
+  color: var(--green);
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.gifts-footnote {
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+@media (max-width: 800px) {
+  .gifts-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .gift-card {
+    padding: 15px 12px;
+  }
+
+  .gift-card h3 {
+    font-size: 19px;
+  }
+
+  .gift-button {
+    padding: 9px 8px;
+    font-size: 10px;
+  }
+}
