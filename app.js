@@ -143,4 +143,3 @@ whatsappButton.addEventListener("click", () => {
 
 renderProducts();
 updateCart();
-```
