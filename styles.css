@@ -420,14 +420,14 @@ h2{font-family:var(--serif);font-size:clamp(27px,4vw,38px);font-weight:400;lette
   }
 }
 
-/* Evitar que el botón flotante tape el carrito en ventanas estrechas */
+/* Mantener el botón de apoyo separado de la barra del carrito */
 @media (min-width: 681px) and (max-width: 1100px) {
   .support-widget {
     right: 12px;
-    bottom: 96px;
+    bottom: 125px;
   }
 
   .support-panel {
-    max-height: 65vh;
+    max-height: 60vh;
   }
 }
