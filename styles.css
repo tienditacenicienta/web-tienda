@@ -420,11 +420,12 @@ h2{font-family:var(--serif);font-size:clamp(27px,4vw,38px);font-weight:400;lette
   }
 }
 
-/* Mantener el botón de apoyo separado de la barra del carrito */
-@media (min-width: 681px) and (max-width: 1100px) {
+
+/* Separar el botón flotante del carrito en todas las ventanas de escritorio */
+@media (min-width: 681px) {
   .support-widget {
     right: 12px;
-    bottom: 125px;
+    bottom: 95px;
   }
 
   .support-panel {
