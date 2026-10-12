@@ -1,4 +1,4 @@
-
+```javascript
 const grid = document.querySelector("#product-grid");
 const empty = document.querySelector("#empty-state");
 const cartBar = document.querySelector("#cart-bar");
@@ -7,14 +7,15 @@ const cartTotal = document.querySelector("#cart-total");
 const whatsappButton = document.querySelector("#whatsapp-button");
 
 const cart = new Map();
-const supportCart = new Map();
 
 let filtroActual = "Todos";
 
 document.querySelector("#drop-title").textContent = CONFIG.dropTitulo;
 document.querySelector("#drop-description").textContent = CONFIG.dropDescripcion;
+
 document.querySelector(".wordmark").innerHTML =
   `${CONFIG.nombre.toLowerCase()} <span>♡</span>`;
+
 document.title = `${CONFIG.nombre} ♡ | Cositas que encuentro para ti`;
 
 function soles(n) {
@@ -79,44 +80,21 @@ function renderProducts() {
   });
 }
 
-function renderGifts() {
-  document.querySelectorAll(".gift-button[data-gift-id]").forEach(btn => {
-    const id = btn.dataset.giftId;
-    const selected = supportCart.has(id);
-
-    btn.classList.toggle("selected", selected);
-    btn.setAttribute("aria-pressed", String(selected));
-    btn.textContent = selected
-      ? "✓ Detalle elegido · Quitar"
-      : "Elegir este detalle +";
-  });
-}
-
 function getProductTotal() {
   return PRODUCTOS.reduce((sum, p) => {
     return sum + (cart.has(p.id) ? p.precio * cart.get(p.id) : 0);
   }, 0);
 }
 
-function getSupportTotal() {
-  return [...supportCart.values()].reduce((sum, item) => {
-    return sum + item.precio * item.cantidad;
-  }, 0);
-}
-
 function updateCart() {
-  const productCount = [...cart.values()].reduce((sum, qty) => sum + qty, 0);
-  const supportCount = [...supportCart.values()].reduce(
-    (sum, item) => sum + item.cantidad,
-    0
-  );
-
-  const count = productCount + supportCount;
-  const total = getProductTotal() + getSupportTotal();
+  const count = [...cart.values()].reduce((sum, qty) => sum + qty, 0);
+  const total = getProductTotal();
 
   cartBar.hidden = count === 0;
 
-  cartCount.textContent = `${count} ${count === 1 ? "cosita" : "cositas"}`;
+  cartCount.textContent =
+    `${count} ${count === 1 ? "cosita" : "cositas"}`;
+
   cartTotal.textContent = `Total referencial: ${soles(total)}`;
 }
 
@@ -132,94 +110,30 @@ document.querySelectorAll(".filter").forEach(btn => {
   });
 });
 
-// Apoyos de monto fijo: se pueden elegir o quitar del carrito.
-document.querySelectorAll(".gift-button[data-gift-id]").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const id = btn.dataset.giftId;
-
-    if (supportCart.has(id)) {
-      supportCart.delete(id);
-    } else {
-      supportCart.set(id, {
-        nombre: btn.dataset.giftName,
-        precio: Number(btn.dataset.giftPrice),
-        cantidad: 1
-      });
-    }
-
-    renderGifts();
-    updateCart();
-  });
-});
-
-// Apoyo de monto personalizado.
-const customAmountInput = document.querySelector("#custom-gift-amount");
-const customGiftButton = document.querySelector("#add-custom-gift");
-const customGiftFeedback = document.querySelector("#custom-gift-feedback");
-
-customGiftButton.addEventListener("click", () => {
-  const amount = Number(customAmountInput.value);
-
-  if (
-    !Number.isFinite(amount) ||
-    amount < 1 ||
-    amount > 10000 ||
-    !/^\d+(\.\d{1,2})?$/.test(customAmountInput.value.trim())
-  ) {
-    customGiftFeedback.textContent =
-      "Ingresa un monto válido entre S/ 1 y S/ 10,000 (máximo 2 decimales).";
-    return;
-  }
-
-  supportCart.set("libre", {
-    nombre: "Un cariñito libre",
-    precio: amount,
-    cantidad: 1
-  });
-
-  customGiftFeedback.textContent =
-    `Cariñito de ${soles(amount)} agregado ♡`;
-
-  renderGifts();
-  updateCart();
-});
-
-// Consultar productos y apoyos en un solo mensaje.
 whatsappButton.addEventListener("click", () => {
   if (!CONFIG.whatsapp || CONFIG.whatsapp === "51999999999") {
     alert("Revisa el número de WhatsApp en products.js.");
     return;
   }
 
-  if (cart.size === 0 && supportCart.size === 0) {
-    alert("Primero elige un producto o un cariñito ♡");
+  if (cart.size === 0) {
+    alert("Primero elige un producto ♡");
     return;
   }
 
   const productLines = PRODUCTOS
     .filter(p => cart.has(p.id))
-    .map(p => `• ${p.nombre} x ${cart.get(p.id)} — ${soles(p.precio * cart.get(p.id))}`);
+    .map(
+      p => `• ${p.nombre} x ${cart.get(p.id)} — ${soles(p.precio * cart.get(p.id))}`
+    );
 
-  const supportLines = [...supportCart.values()].map(item => {
-    return `• ${item.nombre} — ${soles(item.precio * item.cantidad)}`;
-  });
-
-  const total = getProductTotal() + getSupportTotal();
-  const sections = [];
-
-  if (productLines.length) {
-    sections.push(`PRODUCTOS\n${productLines.join("\n")}`);
-  }
-
-  if (supportLines.length) {
-    sections.push(`APOYOS VOLUNTARIOS ♡\n${supportLines.join("\n")}`);
-  }
+  const total = getProductTotal();
 
   const msg =
     `Holaaa ${CONFIG.nombre} ♡ Quisiera consultar mi selección:\n\n` +
-    sections.join("\n\n") +
-    `\n\nTotal referencial: ${soles(total)}\n\n` +
-    `¿Me confirmas la disponibilidad de los productos, el envío y los detalles del apoyo antes de pagar? ¡Gracias! ♡`;
+    `PRODUCTOS\n${productLines.join("\n")}` +
+    `\n\nTotal referencial: ${soles(total)}` +
+    `\n\n¿Me confirmas la disponibilidad y el envío antes de pagar? ¡Gracias! ♡`;
 
   window.open(
     `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`,
@@ -229,5 +143,5 @@ whatsappButton.addEventListener("click", () => {
 });
 
 renderProducts();
-renderGifts();
 updateCart();
+```
