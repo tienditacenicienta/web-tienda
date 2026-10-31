@@ -17,7 +17,7 @@ const PRODUCTOS = [
   {
     id: 1,
     nombre: "Centella Air Fit",
-    precio: 110,
+    precio: 95,
     categoria: "Skincare",
     descripcion: "Protector Solar 50 ml ♡",
     imagen: "product_01.png",
@@ -27,7 +27,7 @@ const PRODUCTOS = [
   {
     id: 2,
     nombre: "Centella Ácido Hyalurónico",
-    precio: 90,
+    precio: 150,
     categoria: "Skincare",
     descripcion: "Protector Solar 100 ml",
     imagen: "product_02.png",
