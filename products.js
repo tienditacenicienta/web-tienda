@@ -26,10 +26,10 @@ const PRODUCTOS = [
   },
   {
     id: 2,
-    nombre: "PROTECTOR SOLAR ÁCIDO HIALURÓNICO",
+    nombre: "Centella Ácido Hyalurónico",
     precio: 90,
     categoria: "Skincare",
-    descripcion: "Para completar tu rutina",
+    descripcion: "Protector Solar 100 ml",
     imagen: "product_02.png",
     estado: "consultar",
     destacado: true
