@@ -16,10 +16,10 @@ const CONFIG = {
 const PRODUCTOS = [
   {
     id: 1,
-    nombre: "MADECA CREAM ZERO",
+    nombre: "Centella Air Fit",
     precio: 110,
     categoria: "Skincare",
-    descripcion: "Un favorito para tu rutina ♡",
+    descripcion: "Protector Solar 50 ml ♡",
     imagen: "product_01.png",
     estado: "consultar",
     destacado: true
