@@ -36,40 +36,40 @@ const PRODUCTOS = [
   },
   {
     id: 3,
-    nombre: "PROTECTOR SOLAR EN BARRA",
+    nombre: "Protector en barra",
     precio: 85,
     categoria: "Skincare",
-    descripcion: "Muy cómodo de usar",
+    descripcion: "Beauty of Joseon 18 gr.",
     imagen: "product_03.png",
     estado: "consultar",
     destacado: true
   },
   {
     id: 4,
-    nombre: "NIACINAMIDA 10%",
+    nombre: "Centella Niacinamide 10 Boosting Shot",
     precio: 95,
     categoria: "Skincare",
-    descripcion: "Para tu piel más luminosa",
+    descripcion: "SKIN1004 - Ampolla Facial 30 ml",
     imagen: "product_04.png",
     estado: "consultar",
     destacado: false
   },
   {
     id: 5,
-    nombre: "SERUM ACLARADOR DE PIEL",
+    nombre: "Sérum Facial aclarador de piel",
     precio: 105,
     categoria: "Skincare",
-    descripcion: "Pregúntame por este ♡",
+    descripcion: "Beauty of Joseon 60 ml",
     imagen: "product_05.png",
     estado: "consultar",
     destacado: false
   },
   {
     id: 6,
-    nombre: "PROTECTOR SOLAR ANUA",
+    nombre: "Protector Solar Heartleaf Silky",
     precio: 100,
     categoria: "Skincare",
-    descripcion: "Un hallazgo de los lives",
+    descripcion: "ANUA 50 ml",
     imagen: "product_06.png",
     estado: "consultar",
     destacado: false
